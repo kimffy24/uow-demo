@@ -1,0 +1,7 @@
+.classpath
+.project
+.settings
+target/*
+
+src/main/java/pro/jiefzz/demo/uowdemo/uowgenroot
+src/main/java/uow-gen-rbind-info.json
