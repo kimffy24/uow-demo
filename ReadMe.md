@@ -21,6 +21,8 @@ mvn clean com.github.kimffy24:uowgen-maven-plugin:0.0.2.2:uow-gen -DoutputSpec=p
 
 包路径就是上一步中outputSpec指定的目录下一级别的uowgenroot文件夹。
 
+> 当下的这个项目就是入口的App类 `pro.jiefzz.demo.uowdemo.App` 上加上这个注解。
+
 ## codegen过程简述
 
 依靠outputSpec参数指定输出的根目录，codegen会在此目录下创建uowgenroot文件夹，并把内容输出到此。
