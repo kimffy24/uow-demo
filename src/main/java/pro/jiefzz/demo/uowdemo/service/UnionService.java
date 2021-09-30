@@ -21,8 +21,8 @@ public class UnionService {
 		RegistrationUser user2 = userEntranceService.getUserRegistrationInfo(2);
 		RegistrationUser user5 = userEntranceService.getUserRegistrationInfo(5);
 		
-		user2.initialEmail("jiefzz.lon@vipshop.com");
-		user5.initialEmail("jiefzz@aliyun.com");
+		user2.initialEmail("abc@jiefzz.com");
+		user5.initialEmail("xyz@jiefzz.com");
 		
 		return true;
 	}

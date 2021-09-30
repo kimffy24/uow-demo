@@ -10,29 +10,22 @@
 
 ```
 cd uow-demo
-mvn clean com.github.kimffy24:uowgen-maven-plugin:0.0.2.2:uow-gen -DoutputSpec=pro/jiefzz/demo/uowdemo
+mvn clean com.github.kimffy24:uowgen-maven-plugin:0.1.0.0:uow-gen -DoutputSpec=pro/jiefzz/demo/uowdemo
 ```
 
 其中，`outputSpec=pro/jiefzz/demo/uowdemo` 可以按需指定为别的目录；
 
 库的sql文件在 `src/main/java/pro/jiefzz/demo/uowdemo/uow-gen-all.sql` 里，自行导入数据库即可；
 
-### 2. spring入口处加入注解 @MapperScan("pro.jiefzz.demo.uowdemo.uowgenroot")
-
-包路径就是上一步中outputSpec指定的目录下一级别的uowgenroot文件夹。
-
-> 当下的这个项目就是入口的App类 `pro.jiefzz.demo.uowdemo.App` 上加上这个注解。
-
 ## codegen过程简述
 
-依靠outputSpec参数指定输出的根目录，codegen会在此目录下创建uowgenroot文件夹，并把内容输出到此。
+uowgen插件会先执行一次编译，然后通过加载部分class并分析元数据，输出我们需要的UoW java类（并且他们能都带上了注解，不用再单独配置）
+
+依靠outputSpec参数指定输出的根目录，codegen会在此目录下创建uowgenroot文件夹，并把生成的java类输出到此。
 
 相关的提示信息会也会输出到uowgenroot/package-info.java中
 
-需要注意的是，
-src/main/java的目录下回生成一个uow-gen-rbind-info.json的文件，
-里面是UoW的mapper类和UoW聚合类绑定的信息，
-暂时无法放到别的地方，也不支持通过参数改名。
+> 因为codegen过程已在compile之后，并且他又生成了新的java类，codegen执行和后面的编译打包需要分开执行
 
 ## 运行
 
