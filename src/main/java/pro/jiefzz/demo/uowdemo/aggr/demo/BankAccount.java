@@ -8,6 +8,7 @@ import java.util.Objects;
 import java.util.TreeMap;
 
 import com.github.kimffy24.uow.annotation.MappingComment;
+import com.github.kimffy24.uow.annotation.MappingTableAttribute;
 import com.github.kimffy24.uow.annotation.MappingType;
 import com.github.kimffy24.uow.annotation.RBind;
 import com.github.kimffy24.uow.export.skeleton.AggregateRootLifeCycleAware;
@@ -19,6 +20,13 @@ import net.minidev.json.JSONValue;
 import pro.jk.ejoker.common.context.annotation.persistent.PersistentIgnore;
 
 //@RBind(BandAccountUoWMapper.class)
+@MappingTableAttribute(
+		tableName = "t_bank_account",
+		alterAppends = {
+				"ALTER TABLE {} add constraint `uk_un_cc` unique(`user_name`,`currency_code`)",
+				"-- 测试"
+		}
+)
 public class BankAccount extends SimpleAggregateRoot<Long> implements AggregateRootLifeCycleAware {
 
 	@MappingComment("登记用户")

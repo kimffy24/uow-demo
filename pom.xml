@@ -92,7 +92,7 @@
 		<dependency>
 			<groupId>com.github.kimffy24</groupId>
 			<artifactId>uow</artifactId>
-			<version>0.1.0.0</version>
+			<version>0.1.0.2</version>
 		</dependency>
 
 	</dependencies>

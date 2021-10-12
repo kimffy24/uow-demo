@@ -12,9 +12,9 @@ import pro.jiefzz.demo.uowdemo.aggr.product.Product;
 import pro.jiefzz.demo.uowdemo.service.ProductService;
 
 class ProductServiceTest extends RootTest {
-	
+
 	private final static Logger logger = LoggerFactory.getLogger(ProductServiceTest.class);
-	
+
 	@Autowired
 	private ProductService productService;
 
